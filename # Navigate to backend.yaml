@@ -1,0 +1,8 @@
+# Navigate to backend
+cd backend
+
+# Install dependencies
+npm install
+
+# Test the server starts
+npm start

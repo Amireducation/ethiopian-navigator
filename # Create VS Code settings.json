@@ -1,0 +1,60 @@
+# Create VS Code settings
+mkdir .vscode
+
+cat > .vscode/settings.json << 'EOF'
+{
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.formatOnSave": true,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/.git": true,
+    "**/.DS_Store": true
+  }
+}
+EOF
+
+# Create VS Code launch configurations
+cat > .vscode/launch.json << 'EOF'
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Backend",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/backend/src/server.js",
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Debug Backend",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/backend/src/server.js",
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"]
+    }
+  ]
+}
+EOF
+
+# Create local environment file
+cat > backend/.env << 'EOF'
+# Local Development Environment
+DATABASE_URL=postgresql://Enavadmin:Amiko@enav2025!@ethionav-postgres-server.postgres.database.azure.com/postgres?sslmode=require
+STORAGE_ACCOUNT_NAME=ethionavstorage
+SEARCH_SERVICE_NAME=ethionav-search
+JWT_SECRET=your-local-development-secret-change-this-in-production
+NODE_ENV=development
+PORT=3000
+EOF

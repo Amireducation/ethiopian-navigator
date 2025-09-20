@@ -1,0 +1,10 @@
+{
+  "name": "ethiopian-navigator",
+  "version": "1.0.0",
+  "description": "SaaS AI-powered platform for Ethiopian government services",
+  "scripts": {
+    "dev": "echo 'Run backend and frontend servers'",
+    "start": "echo 'Start production server'"
+  },
+  "dependencies": {}
+}
